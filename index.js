@@ -11,9 +11,9 @@
 }
 
 {
-  const product = 'table';
+  const product = 'telephone Iphone';
   const amount = 20;
-  const category = 'furniture';
+  const category = 'smartphone';
   const price = 3500;
 
   console.log('product: ', product);
