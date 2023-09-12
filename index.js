@@ -1,21 +1,20 @@
 'use strict';
 
 {
+  prompt('product');
   const product = 'sofa';
+  
+  prompt('amount');
   const amount = 5;
+  console.log(typeof amount);
+  
+  prompt('furniture');
   const category = 'furniture';
+
+  prompt('price');
   const price = 7000;
+  console.log(typeof price);
 
-  console.log('product: ', product);
-  console.log(`общая сумма товара: ${amount * price}`);
-}
 
-{
-  const product = 'telephone Iphone';
-  const amount = 20;
-  const category = 'smartphone';
-  const price = 3500;
-
-  console.log('product: ', product);
-  console.log(`общая сумма товара: ${amount * price}`);
+  console.log(`на складе ${amount} единицы товара ${product} на сумму ${amount * price}`);
 }
