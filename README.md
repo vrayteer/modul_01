@@ -1,7 +1,4 @@
 # git-config
-
-  git config --global user.name "vrayteer"
-  git config --global user.email "azyomi8@gmail.com"
   
   git --list # посмотреть настройки
 
