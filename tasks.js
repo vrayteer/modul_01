@@ -1,5 +1,7 @@
 'use strict';
 
+// Вторая задача
+
 const rain = Math.round(Math.random());
 
 if (rain === 1) {
@@ -7,6 +9,8 @@ if (rain === 1) {
 } else {
   console.log('Дождя нет!');
 }
+
+// Третья задача
 
 const math = +prompt("math",85);
 const russian = +prompt("russian",75);
@@ -17,6 +21,8 @@ if (math + russian + informatics >= 265) {
 } else {
   console.log('лошара');
 }
+
+// Четвертая задача
 
 const howMuch = prompt('сколько денег хотите снять?');
 
