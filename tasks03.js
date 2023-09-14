@@ -1,8 +1,4 @@
-/*Напишите функцию, которая принимает строку и возвращает обратную строку
-
-
-Пример: "Привет мир" => "рим тевирП"
-*/
+'use strict';
 
 const reverseString = (string) => {
   const reverseString = string.split('').reverse().join('');
