@@ -1,9 +1,8 @@
 'use strict';
 
-
-  const modifiedString = (string) => {
-    const modifiedString =  string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    return modifiedString;
-  };
-
-  console.log(modifiedString('почему это так сложно'));
+function isPrime(num) {
+  for (let i = 2; i < num; i++) {
+      if (num % i === 0) return false;
+  }
+  return num !==1;
+}

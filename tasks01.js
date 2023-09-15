@@ -1,15 +1,8 @@
 'use strict';
 
-const converted = (euro) => {
-  let dollars = euro * 1.2;
-  let rubles = dollars * 64;
-
-  return rubles;
+for (let a = 1; a < 11; a++) {
+  console.log ('--------------');
+  for (let b = 1; b < 11; b++) {
+      console.log (`${a} ** ${b} = ${a ** b}`);
+  }
 };
-
-
-let euro = parseFloat(prompt('Введите стоимость покупки в евро: '));
-let result = converted(euro);
-console.log('Результат в рублях: ',result);
-
-
