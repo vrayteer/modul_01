@@ -1,14 +1,11 @@
 'use strict';
 
-
-
 const cart = {
   items: [],
-  totalPrice: 0,
   count: 0,
 
-  getTotalPrice() {
-    return this.totalPrice;
+  get totalPrice() {
+    return this.calculateItemPrice();
   },
 
   add(name, price, quantity = 1) {
@@ -18,7 +15,6 @@ const cart = {
       quantity: quantity,
     };
     this.items.push(newItem);
-    this.calculateItemPrice();
     this.increaseCount(quantity);
   },
 
@@ -27,14 +23,14 @@ const cart = {
   },
 
   calculateItemPrice() {
-    this.totalPrice = this.items.reduce((total, item) => total + item.price * item.quantity, 0); 
+    return this.items.reduce((total, item) => total + item.price * item.quantity, 0); 
   },
 
   clear() {
     this.items = [];
-    this.totalPrice = 0;
     this.count = 0;
   },
+
 
   print() {
     console.log(JSON.stringify(this.items));
@@ -43,7 +39,8 @@ const cart = {
 };
 
 cart.add("Товар 1", 10);
-cart.add("Товар 2", 20, 2);
-cart.add("Товар 3", 15);
+cart.add("Товар 2", 15, 3);
+cart.add("Товар 3", 8);
+
 
 cart.print();
