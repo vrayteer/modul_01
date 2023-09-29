@@ -10,9 +10,9 @@ const cart = {
 
   add(name, price, quantity = 1) {
     const newItem = {
-      name: name,
-      price: price,
-      quantity: quantity,
+      name,
+      price,
+      quantity,
     };
     this.items.push(newItem);
     this.increaseCount(quantity);
@@ -23,7 +23,8 @@ const cart = {
   },
 
   calculateItemPrice() {
-    return this.items.reduce((total, item) => total + item.price * item.quantity, 0); 
+    return this.items.reduce(
+      (total, item) => total + item.price * item.quantity, 0);
   },
 
   clear() {
@@ -35,12 +36,12 @@ const cart = {
   print() {
     console.log(JSON.stringify(this.items));
     console.log(`Общая стоимость корзины: ${this.totalPrice}`);
-  }
+  },
 };
 
-cart.add("Товар 1", 10);
-cart.add("Товар 2", 15, 3);
-cart.add("Товар 3", 8);
+cart.add('Товар 1', 10);
+cart.add('Товар 2', 15, 3);
+cart.add('Товар 3', 8);
 
 
 cart.print();
