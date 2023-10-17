@@ -1,53 +1,56 @@
 'use strict';
 
-const game = (() => {
+(() => {
   let playerBalls = 5;
   let botBalls = 5;
 
-  const getRandomNumber = (min, max) =>
+  const getRandomInt = (min, max) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
 
-  const playGame = () => {
+  const isEven = number => number % 2 === 0;
+
+  const game = () => {
+    console.log('Игра началась!');
+
     while (playerBalls > 0 && botBalls > 0) {
-      const playerGuess = parseInt(
-        prompt('Введите число от 1 до ' + playerBalls));
-      const botGuess = getRandomNumber(1, botBalls);
+      console.log('\nВы загадали:');
+      const playerGuess = parseInt(prompt('Ваше число:'));
 
-      if (playerGuess % 2 === 0) {
-        console.log('Игрок загадал четное число');
+      if (playerGuess >= 1 && playerGuess <= playerBalls) {
+        const botGuess = getRandomInt(1, 2);
+
+        console.log(
+          `Бот считает, что вы загадали ${
+            botGuess === 1 ? 'четное' : 'нечетное'
+          } число.`,
+        );
+
+        if (
+          (botGuess === 1 && isEven(playerGuess)) ||
+          (botGuess === 2 && !isEven(playerGuess))
+        ) {
+          console.log('Бот угадал!');
+          botBalls += playerGuess;
+          playerBalls -= playerGuess;
+        } else {
+          console.log('Бот не угадал!');
+          playerBalls += playerGuess;
+          botBalls -= playerGuess;
+        }
+
+        console.log(`У вас осталось ${playerBalls} шарика(ов).`);
+        console.log(`У бота осталось ${botBalls} шарика(ов).`);
       } else {
-        console.log('Игрок загадал нечетное число');
+        console.log('Некорректное число! Попробуйте еще раз.');
       }
-
-      if (botGuess % 2 === 0) {
-        console.log('Бот угадал четное число');
-        botBalls += playerBalls;
-        playerBalls = 0;
-      } else {
-        console.log('Бот не угадал четное число');
-        playerBalls += botBalls;
-        botBalls = 0;
-      }
-
-      console.log('У игрока осталось ' + playerBalls + ' шариков');
-      console.log('У бота осталось ' + botBalls + ' шариков');
     }
 
     if (playerBalls === 0) {
-      console.log('Игрок проиграл');
+      console.log('Вы проиграли! Ваши шарики закончились.');
     } else {
-      console.log('Бот проиграл');
+      console.log('Вы выиграли! Шарики бота закончились.');
     }
   };
 
-  return {
-    startGame: () => {
-      console.log('Игра началась');
-      console.log('У игрока ' + playerBalls + ' шариков');
-      console.log('У бота ' + botBalls + ' шариков');
-      playGame();
-    },
-  };
+  game();
 })();
-
-game.startGame();
